@@ -1,0 +1,31 @@
+commit 4cda6802998a81f5e268a2093e734e0263f20ed5
+Author: andreistock <andreihirjanu@gmail.com>
+Date:   Tue Mar 8 10:17:35 2016 +0000
+
+    third commit
+
+A	start.cpp
+
+commit fee0ab831a1f44cc92db0f0bd585931a56ebe9d1
+Author: andreistock <andreihirjanu@gmail.com>
+Date:   Mon Mar 7 22:29:45 2016 +0000
+
+    second commit
+
+M	README.md
+
+commit 9912a3aa9e2501357c724bdfd41e4c85335cbb27
+Author: andreistock <andreihirjanu@gmail.com>
+Date:   Mon Mar 7 22:28:16 2016 +0000
+
+    First commit
+
+M	README.md
+
+commit 96448b33afffd34946cad2835f49438748a0a4e2
+Author: Andrei Hirjanu <andreihirjanu@gmail.com>
+Date:   Mon Mar 7 22:25:02 2016 +0000
+
+    Initial commit
+
+A	README.md
