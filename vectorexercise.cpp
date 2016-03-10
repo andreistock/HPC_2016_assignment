@@ -30,18 +30,12 @@ int main()
 	}
 
 	delete [] matrix;
-	std::cout<<5/2.0;
-	double** pvalue  = NULL;     // Pointer initialized with null
-	pvalue  = new double [10][10];
-	for (unsigned int i=0;i<10;i++)
+//	std::cout<<5/2.0;
+
+	for (unsigned int k=0;k<=100;k++)
 	{
-		for (unsigned int j=0;j<10;j++)
-		{
-			if (i==j)
-			{
-				pvalue[i][j]=2;
-			}
-		}
+		v2[k]=k;
+
 	}
-	std::cout<<pvalue[5][5];
+	std::cout<<v2[50]<<"\n";
 }
