@@ -16,7 +16,7 @@ int main()
 	std::cout<<"please input heat coefficient alpha: ";
 	std::cin>>alpha;
 */	L=1;
-	Nx=20;
+	Nx=10;
 	T=100;
 	alpha=1;
 	Nt=1000;
@@ -27,5 +27,8 @@ int main()
 	bar.display_vector(bar.u0);
 	bar.calculate();
 	bar.display_vector(bar.u);
+	bar.full_calculation();
+	bar.display_vector(bar.u);
+	bar.display_vector(bar.u0);
 
 }
