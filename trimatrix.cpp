@@ -3,7 +3,7 @@
 int main()
 {
 
-	double L,T,alpha;
+	double L,T,alpha,gamma1,gamma2;
 	int Nx,Nt;
 /*	std::cout<<"Please input length of bar: ";
 	std::cin>>L;
@@ -17,18 +17,23 @@ int main()
 	std::cin>>alpha;
 */	L=1;
 	Nx=10;
-	T=100;
+	T=10000;
 	alpha=1;
 	Nt=1000;
-	trimatrix bar(L,Nx,T,Nt,alpha);
+	gamma1=0;
+	gamma2=0;
+	trimatrix bar(L,Nx,T,Nt,alpha,gamma1,gamma2);
 	bar.display_matrix();
-	bar.display_vector(bar.u0);
 	bar.set_boundary_conditions();
 	bar.display_vector(bar.u0);
 	bar.calculate();
 	bar.display_vector(bar.u);
-	bar.full_calculation();
+	bar.calculate();
 	bar.display_vector(bar.u);
+	bar.full_calculation();
 	bar.display_vector(bar.u0);
+	bar.~trimatrix();
+//	bar.display_vector(bar.u);
+//	bar.display_vector(bar.u0);
 
 }
