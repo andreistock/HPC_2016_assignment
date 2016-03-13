@@ -5,7 +5,7 @@ int main()
 
 	double L,T,alpha,gamma1,gamma2;
 	int Nx,Nt;
-/*	std::cout<<"Please input length of bar: ";
+	std::cout<<"Please input length of bar: ";
 	std::cin>>L;
 	std::cout<<"Please input number Nx: ";
 	std::cin>>Nx;
@@ -15,12 +15,12 @@ int main()
 	std::cin>>Nt;
 	std::cout<<"please input heat coefficient alpha: ";
 	std::cin>>alpha;
-*/	L=1;
+/*	L=1;
 	Nx=20;
 	T=100;
 	alpha=1.6;
 	Nt=100;
-	gamma1=0;
+*/	gamma1=0;
 	gamma2=0;
 	trimatrix bar(L,Nx,T,Nt,alpha,gamma1,gamma2);
 	bar.display_matrix();
