@@ -3,11 +3,13 @@
 #include <iostream>
 int main(int argc, char* argv[])
 {
-/*	if (argc<7)
+/*	double L,T,alpha,gamma1,gamma2;
+	int Nx,Nt;
+	if (argc<7)
 	{
 		std::cout<<"Not enough input arguments";
 	}
-	else
+	else if (argc==7)
 	{
 */		double L=atof(argv[1]);
 		int Nx=atoi(argv[2]);
