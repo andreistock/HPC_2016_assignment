@@ -88,7 +88,7 @@ public:
 		{
 
 			k=i*L/(double)Nx;
-			std::cout<<k<<"\n";
+//			std::cout<<k<<"\n";
 			u0[i]=k*(1-k);
 		}
 	}
@@ -128,6 +128,7 @@ public:
 		for(double i=0;i<T;i+=delta_t)
 		{
 			calculate();
+			std::cout<<u0[Nx/2]<<" ";
 		}
 	}
 	~trimatrix()
