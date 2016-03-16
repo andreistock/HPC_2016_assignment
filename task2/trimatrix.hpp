@@ -61,7 +61,7 @@ public:
 					else {
 						std::cout<<"0 ";
 					}
-				}
+			`	}
 				else if(j==i-1){
 						std::cout<<mLower[j]<<" ";
 					}
