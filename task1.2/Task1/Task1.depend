@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1457784689 source:/home/andrei/programming/HPC_2016_assignment/task1/q1.cpp
+	"trimatrix.hpp"
+
+1457727740 /home/andrei/programming/HPC_2016_assignment/task1/trimatrix.hpp
+	<iostream>
+	<vector>
+	<math.h>
+	<algorithm>
+
+1458168210 source:/home/andrei/programming/HPC_2016_assignment/task1.1/q1.cpp
+	"trimatrix.hpp"
+	<vector>
+	<algorithm>
+	<math.h>
+
+1458167395 /home/andrei/programming/HPC_2016_assignment/task1.1/trimatrix.hpp
+	<iostream>
+	<math.h>
+
