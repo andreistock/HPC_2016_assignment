@@ -92,7 +92,7 @@ int main()
 	// std::cin>>alpha;
 
 	trimatrix *bar = new trimatrix(Nx,niu,niu,1-2*niu,gamma1,gamma2);
-//	bar->display_matrix();
+	bar->display_matrix();
 	set_boundary_conditions(u0,L,Nx);
 //	display_vector(u0);
 //	calculate(u0,u,Nx,gamma1,gamma2,bar);
