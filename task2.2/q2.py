@@ -19,7 +19,7 @@ Nt1=5000
 
 x = np.linspace(0, T, Nt, endpoint=True)
 x1 = np.linspace(0,T1,Nt1,endpoint=True)
-
+x2 = np.linspace(0,1,Nx+1,endpoint=True)
 command = "./q2 1 {} {} {} 1 0 0".format(Nx,T,Nt).split()
 command1 = "./q2 1 {} {} {} 1 0 0".format(Nx,T1,Nt1).split()
 abc = run_command(command)[0].split()
@@ -27,8 +27,9 @@ abc1 = run_command (command1)[0].split()
 # for symbol in abc:
 # 	print symbol
 fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(10, 6))
-axes[0].plot(x,abc)
-axes[1].plot(x1,abc1)
+print x2
+axes[0].plot(x2,abc)
+# axes[1].plot(x1,abc1)
 fig.tight_layout() 
 pylab.show()
 

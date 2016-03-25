@@ -2,6 +2,8 @@
 #include <vector>
 #include <algorithm>
 #include <math.h>
+
+#define PI (3.141592653589793)
 void print(double k)
 {
 	std::cout<<k<<" ";
@@ -12,8 +14,9 @@ void set_boundary_conditions(std::vector<double> &u0,double &L,int &Nx)
 	for (double i=0;i<=Nx;i++)
 	{
 		k=i*L/(double)Nx;
-//		std::cout<<k<<"\n";
+		// std::cout<<k<<"\n";
 		u0[i]=k*(1-k);
+		// u0[i]=sin(PI*i/Nx);				
 	}
 }
 void display_vector(std::vector<double> &uk)
@@ -55,7 +58,7 @@ void full_calculation(double &T,
 	for(double i=0;i<T;i+=delta_t)
 	{
 		calculate(u0,u,Nx,gamma1,gamma2,bar);
-		std::cout<<u0[Nx/2]<<" ";
+//		std::cout<<u0[Nx/2]<<" ";
 	}
 }
 int numbers()
@@ -99,7 +102,7 @@ int main(int argc, char* argv[])
 //	calculate(u0,u,Nx,gamma1,gamma2,bar);
 //	display_vector(u0);
 	full_calculation(T,delta_t,u0,u,Nx,gamma1,gamma2,*bar);
-//	display_vector(u0);
+	display_vector(u0);
 	delete bar;
 //	bar.display_vector(bar.u);
 //	bar.display_vector(bar.u0);

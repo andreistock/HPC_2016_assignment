@@ -66,10 +66,10 @@ int main()
 	double L,T,alpha,gamma1,gamma2,niu,delta_t,delta_x;
 	int Nx,Nt;
     L=1;
-	Nx=100;
-	T=200000000;
+	Nx=20;
+	T=200000;
 	alpha=1;
-	Nt=100000;
+	Nt=1000;
 	gamma1=0;
 	gamma2=0;
 	std::vector<double> u,u0;
