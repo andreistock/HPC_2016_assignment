@@ -1,7 +1,10 @@
-#include "trimatrix.hpp"
+#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <math.h>
+#include "trimatrix.hpp"
+#include "trimatrix.cpp"
+
 void print(double k)
 {
 	std::cout<<k<<" ";
@@ -21,58 +24,74 @@ void display_vector(std::vector<double> &uk)
 	for_each(uk.begin(),uk.end(),print);
 	std::cout<<"\n";
 }
-void calculate(std::vector<double> &u0,std::vector<double> &u,int &Nx,double &gamma1,double &gamma2,trimatrix &bar)
-{
-	u[0]=gamma1;
-	u[Nx]=gamma2;
-	double sum=0;
-	for (int i=1;i<Nx;i++){
-		sum=0;
-		for(int j=0;j<Nx;j++){
-			if(i==j)
-			{
-				sum=sum+bar.mDiag[i]*u0[i];
-			}
-			else if(j==i-1)
-			{
-				sum=sum+bar.mLower[j]*u0[i-1];
-			}
-			else if(j==i+1)
-			{
-				sum=sum+bar.mUpper[j]*u0[i+1];
-			}
-		}
-		u[i]=sum;
-	}
-	u0=u;
-}
-void full_calculation(double &T,
-					  double &delta_t,std::vector<double> &u0,
-					  std::vector<double> &u,
-					  int &Nx,double &gamma1,double &gamma2,trimatrix &bar)
-{
 
-	for(double i=0;i<T;i+=delta_t)
-	{
-		calculate(u0,u,Nx,gamma1,gamma2,bar);
-	}
-}
-int numbers()
-{
-	return 1;
-}
 int main()
 {
 	double L,T,alpha,gamma1,gamma2,niu,delta_t,delta_x;
 	int Nx,Nt;
-    L=1;
-	Nx=20;
-	T=200000;
-	alpha=1;
-	Nt=1000;
+	std::vector<double> u,u0;
+ //    L=1;
+	// Nx=20;
+	// T=200000;
+	// alpha=1;
+	// Nt=1000;
 	gamma1=0;
 	gamma2=0;
-	std::vector<double> u,u0;
+
+
+
+
+	std::cout<<"Please input length of bar: ";
+	std::cin>>L;
+	if (L==0)
+	{
+		std::cout<<"Must input non 0 Length of bar!\n";
+		throw;
+	}
+	else if(L<0)
+	{
+		std::cout<<"Must input Lenght of bar larger than 0\n";
+		throw;
+	}
+	std::cout<<"Please input number Nx: ";
+	std::cin>>Nx;
+	if (Nx==0)
+	{
+		std::cout<<"Must input non 0 number of discretisation points\n";
+		throw;
+	}
+	else if(Nx<0)
+	{
+		std::cout<<"Must input nr of discretisation points larger than 0\n";
+		throw;
+	}
+	std::cout<<"Please input evaluated time T: ";
+	std::cin>>T;
+	if (T==0)
+	{
+		std::cout<<"Must input non 0 evaluated time\n";
+		throw;
+	}
+	else if(T<0)
+	{
+		std::cout<<"Must input evaluated time larger than 0\n";
+		throw;
+	}
+	std::cout<<"Please input number Nt: ";
+	std::cin>>Nt;
+	if (Nt==0)
+	{
+		std::cout<<"Must input non 0 number of time discretisation points\n";
+		throw;
+	}
+	else if(Nt<0)
+	{
+		std::cout<<"Must input nr of time discretisation points larger than 0\n";
+		throw;
+	}
+	std::cout<<"please input heat coefficient alpha: ";
+	std::cin>>alpha;
+
 	u0.resize(Nx+1);
 	u.resize(Nx+1);
 
@@ -80,28 +99,10 @@ int main()
 	delta_x=L/(double)Nx;
 	niu=alpha*delta_t/(pow(L/delta_x,2));
 
-	// std::cout<<"Please input length of bar: ";
-	// std::cin>>L;
-	// std::cout<<"Please input number Nx: ";
-	// std::cin>>Nx;
-	// std::cout<<"Please input evaluated time T: ";
-	// std::cin>>T;
-	// std::cout<<"Please input number Nt: ";
-	// std::cin>>Nt;
-	// std::cout<<"please input heat coefficient alpha: ";
-	// std::cin>>alpha;
-
-	trimatrix *bar = new trimatrix(Nx,niu,niu,1-2*niu,gamma1,gamma2);
-	bar->display_matrix();
+	trimatrix bar(Nx,niu,niu,1-2*niu);
+	bar.display_matrix();
 	set_boundary_conditions(u0,L,Nx);
-//	display_vector(u0);
-//	calculate(u0,u,Nx,gamma1,gamma2,bar);
-//	display_vector(u0);
-//	calculate(u0,u,Nx,gamma1,gamma2,bar);
-//	display_vector(u0);
-	full_calculation(T,delta_t,u0,u,Nx,gamma1,gamma2,*bar);
+	bar.full_calculation(T,delta_t,u0,u,Nx,gamma1,gamma2);
 	display_vector(u0);
-	delete bar;
-//	bar.display_vector(bar.u);
-//	bar.display_vector(bar.u0);
+	return 0;
 }

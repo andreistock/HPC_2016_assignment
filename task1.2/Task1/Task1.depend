@@ -18,13 +18,19 @@
 	<iostream>
 	<math.h>
 
-1458168957 source:/home/andrei/programming/HPC_2016_assignment/task1.2/q1.cpp
-	"trimatrix.hpp"
+1458953564 source:/home/andrei/programming/HPC_2016_assignment/task1.2/q1.cpp
+	<iostream>
 	<vector>
 	<algorithm>
 	<math.h>
+	"trimatrix.hpp"
+	"trimatrix.cpp"
 
-1458167395 /home/andrei/programming/HPC_2016_assignment/task1.2/trimatrix.hpp
+1458951970 /home/andrei/programming/HPC_2016_assignment/task1.2/trimatrix.hpp
+	<vector>
+
+1458952171 /home/andrei/programming/HPC_2016_assignment/task1.2/trimatrix.cpp
 	<iostream>
 	<math.h>
+	<vector>
 
