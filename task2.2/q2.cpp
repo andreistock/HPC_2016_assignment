@@ -24,7 +24,10 @@ void display_vector(std::vector<double> &uk)
 	for_each(uk.begin(),uk.end(),print);
 	std::cout<<"\n";
 }
-
+void get_point_value (std::vector<double> &uk,int &position)
+{
+	std::cout<<uk[position];
+}
 int main(int argc, char* argv[])
 {
 	double L=atof(argv[1]);
@@ -92,6 +95,7 @@ int main(int argc, char* argv[])
 //	bar.display_matrix();
 	set_boundary_conditions(u0,L,Nx);
 	bar.full_calculation(T,delta_t,u0,u,Nx,gamma1,gamma2);
-	display_vector(u0);
+//	display_vector(u0);
+	std::cout<<u[Nx/2];
 	return 0;
 }
