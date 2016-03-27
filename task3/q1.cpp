@@ -12,7 +12,7 @@ int main()
 	int Nx,Nt;
     L=1;
 	Nx=20;
-	T=200000;
+	T=2000000;
 	alpha=1;
 	Nt=1000000;
 	gamma1=0;
@@ -78,12 +78,22 @@ int main()
 	niu=alpha*delta_t/(pow(L/delta_x,2));
 
 	trimatrix bar(Nx,niu,niu,1-2*niu);
-	trimatrix bar1(Nx,niu1,niu1,niu1);
-	bar1=bar;
+	trimatrix bar1(Nx,niu,niu,1-2*niu);
 	bar.display_matrix();
 	bar1.display_matrix();
+	bar1.set_boundary_conditions(bar1.u0,L,Nx);
 	bar.set_boundary_conditions(bar.u0,L,Nx);
-	bar.full_calculation(T,delta_t,gamma1,gamma2);
+	trimatrix bar2(Nx,niu,niu,1-2*niu);
+	for (int i=0;i<T;i+=delta_t)
+	{
+		bar2=bar/bar1;
+	}
+	// bar.full_calculation(T,delta_t,gamma1,gamma2);
+	bar2.display_vector(bar2.u0);
 	bar.display_vector(bar.u0);
+	bar1.display_vector(bar1.u0);
+	bar1.display_matrix();
+	bar.display_matrix();
+	bar2.display_matrix();
 	return 0;
 }

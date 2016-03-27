@@ -34,3 +34,22 @@
 	<math.h>
 	<vector>
 
+1459100369 source:/home/andrei/programming/HPC_2016_assignment/task3/q1.cpp
+	<iostream>
+	<vector>
+	<algorithm>
+	<math.h>
+	"trimatrix.hpp"
+	"trimatrix.cpp"
+
+1459084897 /home/andrei/programming/HPC_2016_assignment/task3/trimatrix.hpp
+	<vector>
+
+1459100338 /home/andrei/programming/HPC_2016_assignment/task3/trimatrix.cpp
+	<iostream>
+	<math.h>
+	<vector>
+	<iomanip>
+	<cstring>
+	<algorithm>
+

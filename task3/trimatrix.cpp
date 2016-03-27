@@ -32,7 +32,7 @@ trimatrix::trimatrix(int &Nx1,double &elem_upper,double &elem_lower,double elem_
 
 }
 trimatrix::trimatrix(const trimatrix& pSrc)
-        : mSize(pSrc.mSize),
+        : mSize(pSrc.Nx),
           mZero(0.0) {
     mDiag  = new double[mSize];
     mLower = new double[mSize - 1];
@@ -44,9 +44,9 @@ trimatrix::trimatrix(const trimatrix& pSrc)
 
 trimatrix::~trimatrix()
 {
-	// delete [] mDiag;
-	// delete [] mUpper;
-	// delete [] mLower;
+	delete [] mDiag;
+	delete [] mUpper;
+	delete [] mLower;
 }
 void trimatrix::set_boundary_conditions(std::vector<double> &u0,double &L,int &Nx)
 {
@@ -103,17 +103,22 @@ trimatrix& trimatrix::operator=(const trimatrix& pSrc) {
     return *this;
 }
 trimatrix trimatrix::operator/(const trimatrix& pSrc) {
-    trimatrix result(*this);
     double m;
-
-    for (int i=2;i<Nx;i++)
+    u0=pSrc.u0;
+    for (int i=1;i<=Nx;i++)
     {
-    	m=
+    	m=mLower[i-1]/mDiag[i-1];
+    	mDiag[i]=mDiag[i]-m*mUpper[i-1];
+    	u0[i]=u0[i]-m*u0[i-1];
     }
-
+    u[Nx]=u0[Nx]/mDiag[Nx];
+    for (int i=Nx;i=0;i--)
+    	{
+    		u[i]=(u0[i]-mUpper[i]*u[i+1])/mDiag[i];
+    	}
 //    result *= 1.0/pVal;
 
-    return result;
+    return *this;
 }
 void trimatrix::calculate(double &gamma1,double &gamma2)
 {
